@@ -5,6 +5,7 @@ import pygame
 import game_functions as gf
 from settings import Settings
 from ship import Ship
+from pygame.sprite import Group
 
 def run_game():
     # init game
@@ -13,13 +14,15 @@ def run_game():
     screen = pygame.display.set_mode(
         (cfg.screen_width, cfg.screen_height))
     ship = Ship(screen, cfg)
+    bullets = Group()
     pygame.display.set_caption(cfg.game_title)
 
     # game main loop
     while True:
-        gf.check_events(ship)
+        gf.check_events(cfg, screen, ship, bullets)
         ship.update()
-        gf.update_screen(cfg, screen, ship)
+        gf.update_bullets(bullets)
+        gf.update_screen(cfg, screen, ship, bullets)
 
 
 if __name__ == "__main__":
