@@ -19,7 +19,10 @@ def run_game():
 
     # game main loop
     while True:
-        gf.check_events(cfg, screen, ship, bullets)
+        try:
+            gf.check_events(cfg, screen, ship, bullets)
+        except:
+            return
         ship.update()
         gf.update_bullets(bullets)
         gf.update_screen(cfg, screen, ship, bullets)

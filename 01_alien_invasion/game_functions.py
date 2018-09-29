@@ -7,13 +7,16 @@ def fire_event_handle(bullets, ai_settings, screen, ship):
         new_bullet = Bullet(ai_settings, screen, ship)
         bullets.add(new_bullet)
 
+def quit_game():
+    print("Quit game, bye!")
+    pygame.display.quit()
+    pygame.quit()
+    sys.exit()
+
 def check_events(ai_settings, screen, ship, bullets):
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
-            print("Quit game, bye!")
-            pygame.display.quit()
-            pygame.quit()
-            sys.exit()
+            quit_game()
 
         elif event.type == pygame.KEYDOWN:
             if event.key == pygame.K_RIGHT:
@@ -24,6 +27,9 @@ def check_events(ai_settings, screen, ship, bullets):
 
             elif event.key == pygame.K_SPACE:
                 fire_event_handle(bullets, ai_settings, screen, ship)
+
+            elif event.key == pygame.K_q:
+                quit_game()
 
         elif event.type == pygame.KEYUP:
             if event.key == pygame.K_RIGHT:
