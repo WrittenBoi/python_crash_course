@@ -1,0 +1,14 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Visual Code Settings
+.DS_Store
+.vscode/
+
+# Virtualenv
+ll_env/
