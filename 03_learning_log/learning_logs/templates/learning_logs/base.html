@@ -1,0 +1,9 @@
+<p align='right'>
+  <a href="{% url 'admin:index' %}">Manage</a>
+</p>
+<p>
+  <a href="{% url 'learning_logs:index' %}">Learning Log</a> - 
+  <a href="{% url 'learning_logs:topics' %}">Topics</a>
+</p>
+
+{% block content %}{% endblock content %}
