@@ -9,6 +9,7 @@ class Topic(models.Model):
         return self.text
 
 class Entry(models.Model):
+    # "on_delete" statement is for Django 2.xx compatible
     topic = models.ForeignKey(Topic, on_delete=models.CASCADE)
     text = models.TextField()
     date_added = models.DateTimeField(auto_now_add=True)
